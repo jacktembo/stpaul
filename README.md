@@ -92,8 +92,8 @@ The project is coded using a simple and intuitive structure presented bellow:
    |    |    |-- views.py                  # Serve HTML pages for authenticated users
    |    |    |-- urls.py                   # Define some super simple routes  
    |    |
-   |    |-- authentication/                # Handles auth routes (login and register)
-   |    |    |-- urls.py                   # Define authentication routes  
+   |    |-- StaffAccounts/                # Handles auth routes (login and register)
+   |    |    |-- urls.py                   # Define StaffAccounts routes  
    |    |    |-- views.py                  # Handles login and registration  
    |    |    |-- forms.py                  # Define auth forms (login and register) 
    |    |
@@ -111,7 +111,7 @@ The project is coded using a simple and intuitive structure presented bellow:
    |         |    |-- base-fullscreen.html  # Used by Authentication pages
    |         |    |-- base.html             # Used by common pages
    |         |
-   |         |-- accounts/                  # Authentication pages
+   |         |-- StudentsAccounts/                  # Authentication pages
    |         |    |-- login.html            # Login page
    |         |    |-- register.html         # Register page
    |         |

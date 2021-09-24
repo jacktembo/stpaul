@@ -419,7 +419,7 @@
 <div class="container">
     <div class="forms-container">
         <div class="signin-signup">
-            <form action="{% url 'login' %}" class="sign-in-form" method="post">
+            <form action="{% url 'StudentsAccounts:login' %}" class="sign-in-form" method="post">
                 {% csrf_token %}
                 <h2 class="title">Sign in</h2>
                 <div class="input-field">
@@ -433,7 +433,7 @@
                 <input type="submit" value="Login" class="btn solid"/>
 
             </form>
-            <form action="{% url 'register' %}" class="sign-up-form" method="post">
+            <form action="{% url 'StudentsAccounts:register' %}" class="sign-up-form" method="post">
                 {% csrf_token %}
                 <h2 class="title">Sign up</h2>
                 <div class="input-field">

@@ -47,12 +47,12 @@ def logout_view(request):
     return HttpResponseRedirect('/')
 
 
-@login_required(login_url='/accounts/login')
+@login_required(login_url='/StudentsAccounts/login')
 def dashboard(request):
-    return HttpResponse('Dashboard')
+    return render(request, 'layouts/base.html')
 
 
-@login_required(login_url='/accounts/login')
+@login_required(login_url='/StudentsAccounts/login')
 def password_change(request):
     if request.method != 'POST':
         return render(request, 'change_password.html')

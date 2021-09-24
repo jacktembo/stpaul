@@ -29,7 +29,7 @@
                                     {% endif %}                                     
                                 </p> 
                             </div>
-                            <form method="post" action="" class="mt-4">
+                            <form method="post" action="{% url 'StaffAccounts:register' %}" class="mt-4">
                                 
                                 {% csrf_token %}
 
@@ -114,7 +114,7 @@
                             <div class="d-flex justify-content-center align-items-center mt-4">
                                 <span class="fw-normal">
                                     Already have an account? 
-                                    <a href="{% url 'login' %}" class="fw-bold">Sign IN</a>
+                                    <a href="{% url 'StaffAccounts:login' %}" class="fw-bold">Sign IN</a>
                                 </span>
                             </div>
                         </div>
