@@ -20,5 +20,6 @@ urlpatterns = [
     path("staff/home", include("apps.home.urls")),         # UI Kits Html files
     path('', accounts_views.login_view),
     path('students/accounts/', include("apps.StudentsAccounts.urls")),
+    path('staff/', include('apps.routine.urls')),
 
 ]
