@@ -16,25 +16,17 @@ class Title(models.Model):
         return self.title
 
 
-class CourseDuration(models.Model):
+class ProgramDuration(models.Model):
     duration = models.CharField(max_length=10)
 
     def __str__(self):
         return self.duration
 
 
-class Course(models.Model):
-    course_name = models.CharField(max_length=255)
-    course_number = models.CharField(max_length=255)
-
-    def __str__(self):
-        return self.course_name
-
-
 class Program(models.Model):
     program_name = models.CharField(max_length=255)
-    duration = models.ForeignKey(CourseDuration, on_delete=models.CASCADE)
-    courses = models.ManyToManyField(Course, related_name='+')
+    program_number = models.CharField(max_length=255)
+    abbreviation = models.CharField(max_length=6)
 
     def __str__(self):
         return self.program_name
@@ -73,16 +65,16 @@ class Lecturer(models.Model):
     nrc_number = models.CharField(max_length=15, unique=True)
     phone_number = models.CharField(max_length=14)
     email_address = models.EmailField(max_length=64)
-    courses_teaching = models.ManyToManyField(Course, related_name='+')
+    programs_teaching = models.ManyToManyField(Program, related_name='+')
 
 
 class Assignment(models.Model):
-    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    program = models.CharField(max_length=100)
     title = models.CharField(max_length=255)
     description = models.TextField()
     uploads = models.FileField()
     published_date = models.DateField(auto_now=True)
-    due_date = models.DateField()
+    due_date = models.DateTimeField()
 
     def __str__(self):
         return self.title
@@ -90,7 +82,7 @@ class Assignment(models.Model):
 
 class Quiz(models.Model):
     title = models.CharField(max_length=255)
-    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    program = models.ForeignKey(Program, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
@@ -98,7 +90,7 @@ class Quiz(models.Model):
 
 class Test(models.Model):
     title = models.CharField(max_length=255)
-    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    program = models.ForeignKey(Program, on_delete=models.CASCADE)
     instructions = models.TextField()
 
     def __str__(self):
@@ -115,7 +107,7 @@ class Announcement(models.Model):
 
 class Resource(models.Model):
     name = models.CharField(max_length=100)
-    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    program = models.ForeignKey(Program, on_delete=models.CASCADE)
     upload = models.FileField()
 
     def __str__(self):
