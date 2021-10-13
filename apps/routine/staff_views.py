@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-from .models import Assignment
+from .models import Assignment, Resource
 from django.views.decorators.csrf import csrf_exempt
 from datetime import datetime
 
@@ -11,6 +11,8 @@ assignments = Assignment.objects.all()
 assignment_ids = []
 for obj in assignments:
     assignment_ids.append(obj.id)
+
+"""Workflows for managing assignments."""
 
 
 def dashboard(request):
@@ -83,3 +85,16 @@ def edit_assignment(request, pk):
             title=title, description=description, due_date=due_date, uploads=uploads
         )
         return HttpResponseRedirect(reverse('routine:assignment'))
+
+
+#########################################################
+
+"""Workflows for managing Resources"""
+
+
+def resource(request):
+    resources = Resource.objects.all()
+    context = {
+        'resources': resources
+    }
+    return render(request, 'staff/resource.html', context)

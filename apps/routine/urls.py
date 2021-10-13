@@ -11,4 +11,5 @@ urlpatterns = [
     path('delete-assignment/<pk>/', staff_views.delete_assignment, name='delete-assignment'),
     path('delete-all-assignments/', staff_views.delete_all_assignments, name='delete-all-assignments'),
     path('edit-assignment/<pk>/', staff_views.edit_assignment, name='edit-assignment'),
+    path('resource/', staff_views.resource, name='resource'),
 ]

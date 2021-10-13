@@ -13,6 +13,7 @@ import apps.routine.views as routine_views
 admin.AdminSite.site_header = "ST Paul's College Of Nursing & Midwifery"
 admin.AdminSite.site_title = "ST Paul's College | Administration"
 admin.AdminSite.index_title = 'College Administration'
+admin.AdminSite.site_url = 'https://stpaulsnursingcollege.org'
 
 
 urlpatterns = [
