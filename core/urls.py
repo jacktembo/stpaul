@@ -23,4 +23,5 @@ urlpatterns = [
     path('', accounts_views.login_view),
     path('students/accounts/', include("apps.StudentsAccounts.urls")),
     path('staff/', include('apps.routine.urls')),
+    path('announcements/', routine_views.announcements, name='announcements'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

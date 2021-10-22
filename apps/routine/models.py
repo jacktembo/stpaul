@@ -98,7 +98,15 @@ class Test(models.Model):
         return self.title
 
 
+class TargetAudience(models.Model):
+    audience = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.audience
+
+
 class Announcement(models.Model):
+    target_audience = models.ForeignKey(TargetAudience, on_delete=models.CASCADE)
     subject = models.CharField(max_length=255)
     body = models.TextField()
 

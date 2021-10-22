@@ -52,7 +52,6 @@ def add_assignment(request):
         assignment.save()
     return HttpResponseRedirect(reverse('routine:assignment'))
 
-
 @csrf_exempt
 def delete_assignment(request, pk):
     if request.method == 'POST' or request.method != 'POST':
@@ -98,3 +97,11 @@ def resource(request):
         'resources': resources
     }
     return render(request, 'staff/resource.html', context)
+
+
+def edit_resource(request):
+    return None
+
+
+def announcements(request):
+    return None

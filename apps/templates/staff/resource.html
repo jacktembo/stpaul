@@ -332,39 +332,39 @@
     <body>
     <!-- Delete Modal HTML -->
     <div id="deleteAssignmentModal" class="modal fade">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <form action="{% url 'routine:delete-all-assignments' %}" method="post">
-              {% csrf_token %}
-            <div class="modal-header">
-              <h4 class="modal-title">Delete All Resources?</h4>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-hidden="true"
-              >
-                &times;
-              </button>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="{% url 'routine:delete-all-assignments' %}" method="post">
+                    {% csrf_token %}
+                    <div class="modal-header">
+                        <h4 class="modal-title">Delete All Resources?</h4>
+                        <button
+                                type="button"
+                                class="close"
+                                data-dismiss="modal"
+                                aria-hidden="true"
+                        >
+                            &times;
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to delete all these Records?</p>
+                        <p class="text-warning">
+                            <small>This action cannot be undone.</small>
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <input
+                                type="button"
+                                class="btn btn-default"
+                                data-dismiss="modal"
+                                value="Cancel"
+                        />
+                        <input type="submit" class="btn btn-danger" value="Delete All"/>
+                    </div>
+                </form>
             </div>
-            <div class="modal-body">
-              <p>Are you sure you want to delete all these Records?</p>
-              <p class="text-warning">
-                <small>This action cannot be undone.</small>
-              </p>
-            </div>
-            <div class="modal-footer">
-              <input
-                type="button"
-                class="btn btn-default"
-                data-dismiss="modal"
-                value="Cancel"
-              />
-              <input type="submit" class="btn btn-danger" value="Delete All" />
-            </div>
-          </form>
         </div>
-      </div>
     </div>
 
     <div class="container-xl">
@@ -416,7 +416,7 @@
                                     <td>{{ resource.program }}</td>
                                     <td>
                                         <a
-                                                href="{% url 'routine:edit-assignment' assignment.id %}"
+                                                href="{% url 'routine:edit-resource' resource.id %}"
                                                 class="edit"
                                         ><i
                                                 class="material-icons"
@@ -426,7 +426,7 @@
                                         ></a
                                         >
                                         <a
-                                                href="{% url 'routine:delete-assignment' assignment.id %}"
+                                                href="{% url 'routine:delete-resource' resource.id %}"
                                                 class="delete"
                                         ><i
                                                 class="material-icons"
@@ -459,11 +459,11 @@
     <div id="addAssignmentModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="{% url 'routine:add-assignment' %}" method="post" class="form"
+                <form action="{% url 'routine:add-resource' %}" method="post" class="form"
                       enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="modal-header">
-                        <h4 class="modal-title">Add Assignment</h4>
+                        <h4 class="modal-title">Add Resource</h4>
                         <button
                                 type="button"
                                 class="close"
@@ -475,20 +475,20 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>Name of Assignment</label>
+                            <label>Name of Resource</label>
                             <input type="text" class="form-control" required name="title"/>
                         </div>
                         <div class="form-group">
-                            <label>Description or Instructions</label>
-                            <textarea name="description" id="" cols="40" rows="10" class="form-control"
-                                      required></textarea>
+                            <label>Program</label>
+                            <Select class="form-control">
+                                <option value="Public Health Nursing" name="program">Public Health Nursing</option>
+                                <option value="Registered Nursing" name="program">Registered Nursing</option>
+                                <option value="Registered Midwifery" name="program">Registered Midwifery</option>
+                            </Select>
                         </div>
+
                         <div class="form-group">
-                            <label>Submission Deadline</label>
-                            <input type="datetime-local" class="form-control" required name="deadline"/>
-                        </div>
-                        <div class="form-group">
-                            <label>Upload A pdf Document</label>
+                            <label>Upload A Resource Document</label>
                             <input type="file" class="form-control" required accept="application/pdf" name="upload"/>
                         </div>
 
@@ -500,7 +500,7 @@
                                 data-dismiss="modal"
                                 value="Cancel"
                         />
-                        <input type="submit" class="btn btn-success" value="Send Assignment"/>
+                        <input type="submit" class="btn btn-success" value="Add Resource"/>
                     </div>
                 </form>
             </div>
@@ -513,7 +513,7 @@
                 <form>
                     {% csrf_token %}
                     <div class="modal-header">
-                        <h4 class="modal-title">Edit Assignment</h4>
+                        <h4 class="modal-title">Edit Resource</h4>
                         <button
                                 type="button"
                                 class="close"
@@ -525,20 +525,20 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>Name of Assignment</label>
+                            <label>Name of resource</label>
                             <input type="text" class="form-control" required name="title" value=""/>
                         </div>
+
                         <div class="form-group">
-                            <label>Description or Instructions</label>
-                            <textarea name="description" id="" cols="40" rows="10" class="form-control"
-                                      required></textarea>
+                            <label>Program</label>
+                            <Select class="form-control">
+                                <option value="Public Health Nursing" name="program">Public Health Nursing</option>
+                                <option value="Registered Nursing" name="program">Registered Nursing</option>
+                                <option value="Registered Midwifery" name="program">Registered Midwifery</option>
+                            </Select>
                         </div>
                         <div class="form-group">
-                            <label>Submission Deadline</label>
-                            <input type="datetime-local" class="form-control" required name="deadline"/>
-                        </div>
-                        <div class="form-group">
-                            <label>Upload A pdf Document</label>
+                            <label>Upload A Resource Document</label>
                             <input type="file" class="form-control" required accept="application/pdf" name="upload"/>
                         </div>
                     </div>
@@ -549,7 +549,7 @@
                                 data-dismiss="modal"
                                 value="Cancel"
                         />
-                        <input type="submit" class="btn btn-info" value="Save"/>
+                        <input type="submit" class="btn btn-info" value="Save Changes"/>
                     </div>
                 </form>
             </div>

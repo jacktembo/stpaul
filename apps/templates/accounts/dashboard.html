@@ -1,9 +1,99 @@
 {% extends 'layouts/base.html' %}
+{% load static %}
 {% block title %}Add Assignment | ST Paul's College Of Nursing{% endblock %}
 {% block stylesheets %}
+    <style>
+        .boxes {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .box {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 50%;
+            height: 35vw;
+            border: 2px solid black;
+            margin: 1rem;
+            background-color: rgb(240, 243, 241);
+            margin-left: 4rem;
+
+        }
+
+        .box img {
+            width: 70%;
+            height: 50%;
+        }
+
+        .title {
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            color: green;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .heading,
+        .text {
+            text-align: center;
+        }
+
+        @media screen and (min-width: 768px) {
+            .boxes {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .box {
+                width: 60%;
+                height: 20vw;
+            }
+        }
+    </style>
 
 {% endblock %}
 {% block content %}
+    <div class="heading">
+        <h3>Manage Your College Workflows Here!</h3>
+    </div>
+    <div class="text">
+        <p>Welcome On Board!</p>
+    </div>
+    <div class="boxes">
+        <a href="">
+            <div class="box">
+                <div class="title">Assignments</div>
+                <div class="icom"><img src="{% static 'routine/img/assignment.svg' %}" alt="assignments"></div>
+            </div>
+        </a>
+        <a href="">
+            <div class="box">
+                <div class="title">Learning Resources</div>
+                <div class="icom"><img src="{% static 'routine/img/add-resource.svg' %}" alt="add resource"></div>
+            </div>
+        </a>
+        <a href="">
+            <div class="box">
+                <div class="title">Announcements</div>
+                <div class="icom"><img src="{% static 'routine/img/announcement.svg' %}" alt="announcements"></div>
+            </div>
+        </a>
+        <a href="">
+            <div class="box">
+                <div class="title">Live Classes</div>
+                <div class="icom"><img src="{% static 'routine/img/online-lesson.svg' %}" alt="Online Live Classes"></div>
+            </div>
+        </a>
+    </div>
+    </body>
 
 {% endblock %}
 
