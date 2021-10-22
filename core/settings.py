@@ -71,17 +71,22 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'stpaul',
-        'HOST': '',
-        'PORT': '',
-        'USER': 'jack',
-        'PASSWORD': '30970084',
-    }
-}
+RDS_DB_NAME = 'stpaul'
+RDS_USERNAME = 'jack'
+RDS_PASSWORD = '30970084'
+RDS_HOSTNAME = 'stpaul.cr6rresmphuq.us-east-2.rds.amazonaws.com'
+RDS_PORT = '3306'
 
+DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'stpaul',
+            'HOST': 'stpaul.cr6rresmphuq.us-east-2.rds.amazonaws.com',
+            'PORT': '3306',
+            'USER': 'jack',
+            'PASSWORD': '30970084',
+        }
+    }
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
@@ -125,7 +130,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(CORE_DIR, 'apps/static'),
 )
-
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
