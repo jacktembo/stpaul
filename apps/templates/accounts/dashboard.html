@@ -68,19 +68,19 @@
         <p>Welcome On Board!</p>
     </div>
     <div class="boxes">
-        <a href="">
+        <a href="{% url 'routine:assignment' %}">
             <div class="box">
                 <div class="title">Assignments</div>
                 <div class="icom"><img src="{% static 'routine/img/assignment.svg' %}" alt="assignments"></div>
             </div>
         </a>
-        <a href="">
+        <a href="{% url 'routine:resource' %}">
             <div class="box">
                 <div class="title">Learning Resources</div>
                 <div class="icom"><img src="{% static 'routine/img/add-resource.svg' %}" alt="add resource"></div>
             </div>
         </a>
-        <a href="">
+        <a href="{% url 'routine:staff-announcements' %}">
             <div class="box">
                 <div class="title">Announcements</div>
                 <div class="icom"><img src="{% static 'routine/img/announcement.svg' %}" alt="announcements"></div>
